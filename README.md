@@ -39,4 +39,7 @@ Here is a list:
 
   I can type more here
   
+  I have learned how to use edit. I have also learned how to get file to and from GitHub. 
+  I learned that edit is one of many text editors that I can use in Linux. I have learned how to add links and images.
+  
   
