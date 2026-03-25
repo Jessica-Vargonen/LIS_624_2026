@@ -14,411 +14,57 @@
 
 5) `sudo apt autoremove`: removed tldr, freed up 27.8 MB disk space
 
-`sudo apt clean`: to remove cached packages
+6) `sudo apt clean`: to remove cached packages
 
-`sudo apt install tldr-py`: installed
+7) `sudo apt install tldr-py`: installed
 
-`tldr grep`: no such command 
+8) `tldr grep`: no such command 
 
-`tldr -h`:
-Usage: tldr [OPTIONS] COMMAND [ARGS]...
- A python client for tldr: simplified and community-driven man pages.
-Options:
-  -V, --version  Show the version and exit.
- -h, --help     Show this message and exit.
-Commands:
- find     Find the command usage.
- init     Init config file.
-locate   Locate the command's man page.
-reindex  Rebuild the index.
-update   Update to the latest pages.
+9) `tldr -h`
 
-`sudo apt --purge remove tldr-py`: removed, freed up 42 kB
+10) `sudo apt --purge remove tldr-py`: removed, freed up 42 kB
 
-`apt search bsd games`: 
-Sorting... Done
-Full Text Search... Done
-bsdgames/noble 2.17-33 amd64
- 			 collection of classic textual unix games
-bsdgames-nonfree/noble 2.17-9build1 amd64
-  			rogue, the classic dungeon exploration game
-junior-math/noble 1.32 all
-  			Debian Jr. educational math
-killbots/noble 4:23.08.5-0ubuntu3 amd64	
- port of the classic BSD console game robots
-nbsdgames/noble 5-6 amd64
-text based mini games for your terminal
-open-adventure/noble 1.12-1 amd64
-  			colossal cave adventure, the 1995 430-point version
+11) `apt search bsd games`
 
 ## Installing the Apache Web Server
 
 ### Steps
 
-`sudo apt update`:
-Hit:1 http://us-central1.gce.archive.ubuntu.com/ubuntu noble InRelease
-Hit:2 http://us-central1.gce.archive.ubuntu.com/ubuntu noble-updates InRelease                                       
-Hit:3 http://us-central1.gce.archive.ubuntu.com/ubuntu noble-backports InRelease                                     
-Hit:4 https://packages.cloud.google.com/apt google-cloud-ops-agent-noble-2 InRelease                                 
-Hit:5 http://security.ubuntu.com/ubuntu noble-security InRelease      
 
-`sudo apt -y upgrade`: 
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-Calculating upgrade... Done
-The following packages will be upgraded:
- linux-base sosreport
-2 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-Need to get 401 kB of archives.
-After this operation, 258 kB of additional disk space will be used.
-Get:1 http://us-central1.gce.archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-base all 4.5ubuntu9+24.04.2 [19.6 kB]
-Get:2 http://us-central1.gce.archive.ubuntu.com/ubuntu noble-updates/main amd64 sosreport amd64 4.10.2-0ubuntu0~24.04.1 [381 kB]
-Fetched 401 kB in 0s (12.3 MB/s)   
-Preconfiguring packages ...
-(Reading database ... 105703 files and directories currently installed.)
-Preparing to unpack .../linux-base_4.5ubuntu9+24.04.2_all.deb ...
-Unpacking linux-base (4.5ubuntu9+24.04.2) over (4.5ubuntu9+24.04.1) ...
-Preparing to unpack .../sosreport_4.10.2-0ubuntu0~24.04.1_amd64.deb ...
-Unpacking sosreport (4.10.2-0ubuntu0~24.04.1) over (4.9.2-0ubuntu0~24.04.1) ...
-Setting up linux-base (4.5ubuntu9+24.04.2) ...
-Setting up sosreport (4.10.2-0ubuntu0~24.04.1) ...
-Processing triggers for man-db (2.12.0-4build2) ...
-Scanning processes...                                                                                                 
-Scanning candidates...                                                                                                
-Scanning linux images...                                                                                              
+1) `apt search apache2 | head`
 
-Pending kernel upgrade!
-Running kernel version:
-  6.14.0-1021-gcp
-Diagnostics:
-  The currently running kernel version is not the expected kernel version 6.17.0-1008-gcp.
+2) `apt show apache2`
 
-Restarting the system to load the new kernel will not be handled automatically, so you should consider rebooting.
+3) `cd /var/`: now in var directory 
 
-Restarting services...
+4) `ls`: backups  cache  crash  lib  local  lock  log  mail  opt  run  snap  spool  tmp
 
-Service restarts being deferred:
- /etc/needrestart/restart.d/dbus.service
- systemctl restart getty@tty1.service
- systemctl restart networkd-dispatcher.service
- systemctl restart serial-getty@ttyS0.service
- systemctl restart unattended-upgrades.service
+5) `sudo apt install apache2`
 
-No containers need to be restarted.
+6) `ls`: backups  cache  crash  lib  local  lock  log  mail  opt  run  snap  spool  tmp  www
 
-No user sessions are running outdated binaries.
+7) `systemctl status apache2`: active
 
-No VM guests are running outdated hypervisor (qemu) binaries on this host.       
-Reading package lists... Done                          
-Building dependency tree... Done
-Reading state information... Done
-2 packages can be upgraded. Run 'apt list --upgradable' to see them.
+8) `sudo apt install elinks`
 
-`apt search apache2 | head`:
-WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+9) `elinks 127.0.0.1`: It works
 
-Sorting...
-Full Text Search...
-apache2/noble-updates,noble-security 2.4.58-1ubuntu8.10 amd64
-  Apache HTTP Server
+10) `ip a`
 
-apache2-bin/noble-updates,noble-security 2.4.58-1ubuntu8.10 amd64
-  Apache HTTP Server (modules and other binary files)
+11) `elinks http://10.128.0.3`: It works
 
-apache2-data/noble-updates,noble-security 2.4.58-1ubuntu8.10 all
-  Apache HTTP Server (common files)
+12) `cd /www/html`: -bash: cd: /www/html: No such file or directory, I forgot to put
+    /var in front
 
-`apt show apache2`:
-Package: apache2
-Version: 2.4.58-1ubuntu8.10
-Priority: optional
-Section: web
-Origin: Ubuntu
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-Original-Maintainer: Debian Apache Maintainers <debian-apache@lists.debian.org>
-Bugs: https://bugs.launchpad.net/ubuntu/+filebug
-Installed-Size: 466 kB
-Provides: httpd, httpd-cgi
-Pre-Depends: init-system-helpers (>= 1.54~)
-Depends: apache2-bin (= 2.4.58-1ubuntu8.10), apache2-data (= 2.4.58-1ubuntu8.10), apache2-utils (= 2.4.58-1ubuntu8.10), media-types, perl:any, procps
-Recommends: ssl-cert
-Suggests: apache2-doc, apache2-suexec-pristine | apache2-suexec-custom, www-browser, ufw
-Homepage: https://httpd.apache.org/
-Task: lamp-server
-Download-Size: 90.2 kB
-APT-Sources: http://us-central1.gce.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages
-Description: Apache HTTP Server
- The Apache HTTP Server Project's goal is to build a secure, efficient and
- extensible HTTP server as standards-compliant open source software. The
- result has long been the number one web server on the Internet.
- .
- Installing this package results in a full installation, including the
- configuration files, init scripts and support scripts.
+13) `cd /var/www/html/`: jessieloso@spring-2026-jvargo:/var/www/html$ 
 
-N: There is 1 additional record. Please use the '-a' switch to see it
+14) `ls`: index.html
 
-`cd /var/`: now in var directory 
+15) `sudo mv index.html index.orginal.html`
 
-`ls`: backups  cache  crash  lib  local  lock  log  mail  opt  run  snap  spool  tmp
+16) `ls`: index.original.html
 
-`sudo apt install apache2`:
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-The following additional packages will be installed:
-  apache2-bin apache2-data apache2-utils libapr1t64 libaprutil1-dbd-sqlite3 libaprutil1-ldap libaprutil1t64
-  liblua5.4-0 ssl-cert
-Suggested packages:
-  apache2-doc apache2-suexec-pristine | apache2-suexec-custom www-browser
-The following NEW packages will be installed:
-  apache2 apache2-bin apache2-data apache2-utils libapr1t64 libaprutil1-dbd-sqlite3 libaprutil1-ldap libaprutil1t64
-  liblua5.4-0 ssl-cert
-0 upgraded, 10 newly installed, 0 to remove and 0 not upgraded.
-Need to get 2090 kB of archives.
-After this operation, 8113 kB of additional disk space will be used.
-Do you want to continue? [Y/n] y
-Get:1 http://us-central1.gce.archive.ubuntu.com/ubuntu noble-updates/main amd64 libapr1t64 amd64 1.7.2-3.1ubuntu0.1 [108 kB]
-Get:2 http://us-central1.gce.archive.ubuntu.com/ubuntu noble/main amd64 libaprutil1t64 amd64 1.6.3-1.1ubuntu7 [91.9 kB]
-Get:3 http://us-central1.gce.archive.ubuntu.com/ubuntu noble/main amd64 libaprutil1-dbd-sqlite3 amd64 1.6.3-1.1ubuntu7 [11.2 kB]
-Get:4 http://us-central1.gce.archive.ubuntu.com/ubuntu noble/main amd64 libaprutil1-ldap amd64 1.6.3-1.1ubuntu7 [9116 B]
-Get:5 http://us-central1.gce.archive.ubuntu.com/ubuntu noble/main amd64 liblua5.4-0 amd64 5.4.6-3build2 [166 kB]
-Get:6 http://us-central1.gce.archive.ubuntu.com/ubuntu noble-updates/main amd64 apache2-bin amd64 2.4.58-1ubuntu8.10 [1334 kB]
-Get:7 http://us-central1.gce.archive.ubuntu.com/ubuntu noble-updates/main amd64 apache2-data all 2.4.58-1ubuntu8.10 [163 kB]
-Get:8 http://us-central1.gce.archive.ubuntu.com/ubuntu noble-updates/main amd64 apache2-utils amd64 2.4.58-1ubuntu8.10 [98.1 kB]
-Get:9 http://us-central1.gce.archive.ubuntu.com/ubuntu noble-updates/main amd64 apache2 amd64 2.4.58-1ubuntu8.10 [90.2 kB]
-Get:10 http://us-central1.gce.archive.ubuntu.com/ubuntu noble/main amd64 ssl-cert all 1.1.2ubuntu1 [17.8 kB]         
-Fetched 2090 kB in 13s (159 kB/s)                                                                                    
-Preconfiguring packages ...
-Selecting previously unselected package libapr1t64:amd64.
-(Reading database ... 105906 files and directories currently installed.)
-Preparing to unpack .../0-libapr1t64_1.7.2-3.1ubuntu0.1_amd64.deb ...
-Unpacking libapr1t64:amd64 (1.7.2-3.1ubuntu0.1) ...
-Selecting previously unselected package libaprutil1t64:amd64.
-Preparing to unpack .../1-libaprutil1t64_1.6.3-1.1ubuntu7_amd64.deb ...
-Unpacking libaprutil1t64:amd64 (1.6.3-1.1ubuntu7) ...
-Selecting previously unselected package libaprutil1-dbd-sqlite3:amd64.
-Preparing to unpack .../2-libaprutil1-dbd-sqlite3_1.6.3-1.1ubuntu7_amd64.deb ...
-Unpacking libaprutil1-dbd-sqlite3:amd64 (1.6.3-1.1ubuntu7) ...
-Selecting previously unselected package libaprutil1-ldap:amd64.
-Preparing to unpack .../3-libaprutil1-ldap_1.6.3-1.1ubuntu7_amd64.deb ...
-Unpacking libaprutil1-ldap:amd64 (1.6.3-1.1ubuntu7) ...
-Selecting previously unselected package liblua5.4-0:amd64.
-Preparing to unpack .../4-liblua5.4-0_5.4.6-3build2_amd64.deb ...
-Unpacking liblua5.4-0:amd64 (5.4.6-3build2) ...
-Selecting previously unselected package apache2-bin.
-Preparing to unpack .../5-apache2-bin_2.4.58-1ubuntu8.10_amd64.deb ...
-Unpacking apache2-bin (2.4.58-1ubuntu8.10) ...
-Selecting previously unselected package apache2-data.
-Preparing to unpack .../6-apache2-data_2.4.58-1ubuntu8.10_all.deb ...
-Unpacking apache2-data (2.4.58-1ubuntu8.10) ...
-Selecting previously unselected package apache2-utils.
-Preparing to unpack .../7-apache2-utils_2.4.58-1ubuntu8.10_amd64.deb ...
-Unpacking apache2-utils (2.4.58-1ubuntu8.10) ...
-Selecting previously unselected package apache2.
-Preparing to unpack .../8-apache2_2.4.58-1ubuntu8.10_amd64.deb ...
-Unpacking apache2 (2.4.58-1ubuntu8.10) ...
-Selecting previously unselected package ssl-cert.
-Preparing to unpack .../9-ssl-cert_1.1.2ubuntu1_all.deb ...
-Unpacking ssl-cert (1.1.2ubuntu1) ...
-Setting up ssl-cert (1.1.2ubuntu1) ...
-Created symlink /etc/systemd/system/multi-user.target.wants/ssl-cert.service → /usr/lib/systemd/system/ssl-cert.service.
-Setting up libapr1t64:amd64 (1.7.2-3.1ubuntu0.1) ...
-Setting up liblua5.4-0:amd64 (5.4.6-3build2) ...
-Setting up apache2-data (2.4.58-1ubuntu8.10) ...
-Setting up libaprutil1t64:amd64 (1.6.3-1.1ubuntu7) ...
-Setting up libaprutil1-ldap:amd64 (1.6.3-1.1ubuntu7) ...
-Setting up libaprutil1-dbd-sqlite3:amd64 (1.6.3-1.1ubuntu7) ...
-Setting up apache2-utils (2.4.58-1ubuntu8.10) ...
-Setting up apache2-bin (2.4.58-1ubuntu8.10) ...
-Setting up apache2 (2.4.58-1ubuntu8.10) ...
-Enabling module mpm_event.
-Enabling module authz_core.
-Enabling module authz_host.
-Enabling module authn_core.
-Enabling module auth_basic.
-Enabling module access_compat.
-Enabling module authn_file.
-Enabling module authz_user.
-Enabling module alias.
-Enabling module dir.
-Enabling module autoindex.
-Enabling module env.
-Enabling module mime.
-Enabling module negotiation.
-Enabling module setenvif.
-Enabling module filter.
-Enabling module deflate.
-Enabling module status.
-Enabling module reqtimeout.
-Enabling conf charset.
-Enabling conf localized-error-pages.
-Enabling conf other-vhosts-access-log.
-Enabling conf security.
-Enabling conf serve-cgi-bin.
-Enabling site 000-default.
-Created symlink /etc/systemd/system/multi-user.target.wants/apache2.service → /usr/lib/systemd/system/apache2.service.
-Created symlink /etc/systemd/system/multi-user.target.wants/apache-htcacheclean.service → /usr/lib/systemd/system/apache-htcacheclean.service.
-Processing triggers for ufw (0.36.2-6) ...
-Processing triggers for man-db (2.12.0-4build2) ...
-Processing triggers for libc-bin (2.39-0ubuntu8.7) ...
-Scanning processes...                                                                                                 
-Scanning candidates...                                                                                                
-Scanning linux images...                                                                                              
-
-Pending kernel upgrade!
-Running kernel version:
-  6.14.0-1021-gcp
-Diagnostics:
-  The currently running kernel version is not the expected kernel version 6.17.0-1008-gcp.
-
-Restarting the system to load the new kernel will not be handled automatically, so you should consider rebooting.
-
-Restarting services...
-
-Service restarts being deferred:
- /etc/needrestart/restart.d/dbus.service
- systemctl restart getty@tty1.service
- systemctl restart networkd-dispatcher.service
- systemctl restart serial-getty@ttyS0.service
- systemctl restart unattended-upgrades.service
-
-No containers need to be restarted.
-
-No user sessions are running outdated binaries.
-
-No VM guests are running outdated hypervisor (qemu) binaries on this host.
-
-`ls`: backups  cache  crash  lib  local  lock  log  mail  opt  run  snap  spool  tmp  www
-
-`systemctl status apache2`: 
-● apache2.service - The Apache HTTP Server
-     Loaded: loaded (/usr/lib/systemd/system/apache2.service; enabled; preset: enabled)
-     Active: active (running) since Sat 2026-03-07 16:01:54 UTC; 45s ago
-       Docs: https://httpd.apache.org/docs/2.4/
-   Main PID: 2276594 (apache2)
-      Tasks: 55 (limit: 1072)
-     Memory: 5.1M (peak: 5.5M)
-        CPU: 50ms
-     CGroup: /system.slice/apache2.service
-             ├─2276594 /usr/sbin/apache2 -k start
-             ├─2276596 /usr/sbin/apache2 -k start
-             └─2276597 /usr/sbin/apache2 -k start
-
-Mar 07 16:01:54 spring-2026-jvargo.us-central1-a.c.syslib-624-jvargonen.internal systemd[1]: Starting apache2.service>
-Mar 07 16:01:54 spring-2026-jvargo.us-central1-a.c.syslib-624-jvargonen.internal systemd[1]: Started apache2.service >
-lines 1-15/15 (END)
-
-`sudo apt install elinks`:
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-The following additional packages will be installed:
-  elinks-data libev4t64 libfsplib0t64 libidn12 liblua5.3-0 libtre5
-Suggested packages:
-  elinks-doc tre-agrep
-The following NEW packages will be installed:
-  elinks elinks-data libev4t64 libfsplib0t64 libidn12 liblua5.3-0 libtre5
-0 upgraded, 7 newly installed, 0 to remove and 0 not upgraded.
-Need to get 1319 kB of archives.
-After this operation, 4566 kB of additional disk space will be used.
-Do you want to continue? [Y/n] y
-Get:1 http://us-central1.gce.archive.ubuntu.com/ubuntu noble/universe amd64 libev4t64 amd64 1:4.33-2.1build1 [31.0 kB]
-Get:2 http://us-central1.gce.archive.ubuntu.com/ubuntu noble/universe amd64 libfsplib0t64 amd64 0.14-5.1build1 [13.3 kB]
-Get:3 http://us-central1.gce.archive.ubuntu.com/ubuntu noble/main amd64 libidn12 amd64 1.42-1build1 [55.9 kB]
-Get:4 http://us-central1.gce.archive.ubuntu.com/ubuntu noble/universe amd64 liblua5.3-0 amd64 5.3.6-2build2 [143 kB]
-Get:5 http://us-central1.gce.archive.ubuntu.com/ubuntu noble/universe amd64 libtre5 amd64 0.8.0-7 [50.1 kB]          
-Get:6 http://us-central1.gce.archive.ubuntu.com/ubuntu noble/universe amd64 elinks-data all 0.16.1.1-4.1ubuntu3 [434 kB]
-Get:7 http://us-central1.gce.archive.ubuntu.com/ubuntu noble/universe amd64 elinks amd64 0.16.1.1-4.1ubuntu3 [592 kB]
-Fetched 1319 kB in 17s (77.2 kB/s)                                                                                   
-Selecting previously unselected package libev4t64:amd64.
-(Reading database ... 106629 files and directories currently installed.)
-Preparing to unpack .../0-libev4t64_1%3a4.33-2.1build1_amd64.deb ...
-Unpacking libev4t64:amd64 (1:4.33-2.1build1) ...
-Selecting previously unselected package libfsplib0t64.
-Preparing to unpack .../1-libfsplib0t64_0.14-5.1build1_amd64.deb ...
-Unpacking libfsplib0t64 (0.14-5.1build1) ...
-Selecting previously unselected package libidn12:amd64.
-Preparing to unpack .../2-libidn12_1.42-1build1_amd64.deb ...
-Unpacking libidn12:amd64 (1.42-1build1) ...
-Selecting previously unselected package liblua5.3-0:amd64.
-Preparing to unpack .../3-liblua5.3-0_5.3.6-2build2_amd64.deb ...
-Unpacking liblua5.3-0:amd64 (5.3.6-2build2) ...
-Selecting previously unselected package libtre5:amd64.
-Preparing to unpack .../4-libtre5_0.8.0-7_amd64.deb ...
-Unpacking libtre5:amd64 (0.8.0-7) ...
-Selecting previously unselected package elinks-data.
-Preparing to unpack .../5-elinks-data_0.16.1.1-4.1ubuntu3_all.deb ...
-Unpacking elinks-data (0.16.1.1-4.1ubuntu3) ...
-Selecting previously unselected package elinks.
-Preparing to unpack .../6-elinks_0.16.1.1-4.1ubuntu3_amd64.deb ...
-Unpacking elinks (0.16.1.1-4.1ubuntu3) ...
-Setting up libev4t64:amd64 (1:4.33-2.1build1) ...
-Setting up libtre5:amd64 (0.8.0-7) ...
-Setting up elinks-data (0.16.1.1-4.1ubuntu3) ...
-Setting up libidn12:amd64 (1.42-1build1) ...
-Setting up liblua5.3-0:amd64 (5.3.6-2build2) ...
-Setting up libfsplib0t64 (0.14-5.1build1) ...
-Setting up elinks (0.16.1.1-4.1ubuntu3) ...
-Processing triggers for man-db (2.12.0-4build2) ...
-Processing triggers for libc-bin (2.39-0ubuntu8.7) ...
-Scanning processes...                                                                                                 
-Scanning candidates...                                                                                                
-Scanning linux images...                                                                                              
-
-Pending kernel upgrade!
-Running kernel version:
-  6.14.0-1021-gcp
-Diagnostics:
-  The currently running kernel version is not the expected kernel version 6.17.0-1008-gcp.
-
-Restarting the system to load the new kernel will not be handled automatically, so you should consider rebooting.
-
-Restarting services...
-
-Service restarts being deferred:
- /etc/needrestart/restart.d/dbus.service
- systemctl restart getty@tty1.service
- systemctl restart networkd-dispatcher.service
- systemctl restart serial-getty@ttyS0.service
- systemctl restart unattended-upgrades.service
-
-No containers need to be restarted.
-
-No user sessions are running outdated binaries.
-
-No VM guests are running outdated hypervisor (qemu) binaries on this host.
-
-`elinks 127.0.0.1`: It works
-
-`ip a`:
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host noprefixroute 
-       valid_lft forever preferred_lft forever
-2: ens4: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1460 qdisc mq state UP group default qlen 1000
-    link/ether 42:01:0a:80:00:03 brd ff:ff:ff:ff:ff:ff
-    altname enp0s4
-    inet 10.128.0.3/32 metric 100 scope global dynamic ens4
-       valid_lft 2439sec preferred_lft 2439sec
-    inet6 fe80::4001:aff:fe80:3/64 scope link 
-       valid_lft forever preferred_lft forever
-
-`elinks http://10.128.0.3`: It works
-
-`cd /www/html`: -bash: cd: /www/html: No such file or directory
-
-`cd /var/www/html/`: jessieloso@spring-2026-jvargo:/var/www/html$ 
-
-`ls`: index.html
-
-`sudo mv index.html index.orginal.html`
-
-`ls`: index.original.html
-
-`sudo edit index.html`: opens edit
+17) `sudo edit index.html`: opens edit
 
 `<html>
 <head>
