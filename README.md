@@ -4,21 +4,6 @@
 
 ### Steps
 
-
-`show databaes;`:
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| mysql              |
-| performance_schema |
-| sys                |
-+--------------------+
-
-
-
-
-
 1) `apt search tldr`: 
 
 2) `sudo apt install tldr`: installed
@@ -79,505 +64,97 @@
 
 16) `ls`: index.original.html
 
-17) `sudo edit index.html`: opens edit
-
-`<html>
-<head>
-<title>My first web page using Apache</title>
-</head>
-<body>
-
-<h1>Welcome</h1>
-
-<p>Welcome to my web site.
-I created this site using the Apache HTTP server.</p>
-
-</body>
-</html>`: when I refreshed page it said URL not found. I realized that I needed to save the
+17) `sudo edit index.html`: opens edit and insert text.
+When I refreshed page it said URL not found. I realized that I needed to save the
 changes in edit then reload the page. When I refreshed it says Welcome
 
 ## Installing and Configuring PHP
 
 ### Steps
 
-`apt show php`:
-Package: php
-Version: 2:8.3+93ubuntu2
-Priority: optional
-Section: php
-Source: php-defaults (93ubuntu2)
-Origin: Ubuntu
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-Original-Maintainer: Debian PHP Maintainers <team+pkg-php@tracker.debian.org>
-Bugs: https://bugs.launchpad.net/ubuntu/+filebug
-Installed-Size: 11.3 kB
-Depends: php8.3
-Download-Size: 4076 B
-APT-Sources: http://us-central1.gce.archive.ubuntu.com/ubuntu noble/main amd64 Packages
-Description: server-side, HTML-embedded scripting language (default)
- PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
- open source general-purpose scripting language that is especially suited
- for web development and can be embedded into HTML.
- .
- This package is a dependency package, which depends on latest stable
- PHP version (currently 8.3).
+1) `apt show php`
 
-`sudo apt install php libapache2-mod-php`:
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-The following additional packages will be installed:
-  libapache2-mod-php8.3 php-common php8.3 php8.3-cli php8.3-common php8.3-opcache php8.3-readline
-Suggested packages:
-  php-pear
-The following NEW packages will be installed:
-  libapache2-mod-php libapache2-mod-php8.3 php php-common php8.3 php8.3-cli php8.3-common php8.3-opcache
-  php8.3-readline
-0 upgraded, 9 newly installed, 0 to remove and 0 not upgraded.
-Need to get 4922 kB of archives.
-After this operation, 22.4 MB of additional disk space will be used.
-Do you want to continue? [Y/n] y
-Get:1 http://us-central1.gce.archive.ubuntu.com/ubuntu noble/main amd64 php-common all 2:93ubuntu2 [13.9 kB]
-Get:2 http://us-central1.gce.archive.ubuntu.com/ubuntu noble-updates/main amd64 php8.3-common amd64 8.3.6-0ubuntu0.24.04.6 [740 kB]
-Get:3 http://us-central1.gce.archive.ubuntu.com/ubuntu noble-updates/main amd64 php8.3-opcache amd64 8.3.6-0ubuntu0.24.04.6 [372 kB]
-Get:4 http://us-central1.gce.archive.ubuntu.com/ubuntu noble-updates/main amd64 php8.3-readline amd64 8.3.6-0ubuntu0.24.04.6 [13.4 kB]
-Get:5 http://us-central1.gce.archive.ubuntu.com/ubuntu noble-updates/main amd64 php8.3-cli amd64 8.3.6-0ubuntu0.24.04.6 [1916 kB]
-Get:6 http://us-central1.gce.archive.ubuntu.com/ubuntu noble-updates/main amd64 libapache2-mod-php8.3 amd64 8.3.6-0ubuntu0.24.04.6 [1850 kB]
-Get:7 http://us-central1.gce.archive.ubuntu.com/ubuntu noble/main amd64 libapache2-mod-php all 2:8.3+93ubuntu2 [4224 B]
-Get:8 http://us-central1.gce.archive.ubuntu.com/ubuntu noble-updates/main amd64 php8.3 all 8.3.6-0ubuntu0.24.04.6 [9172 B]
-Get:9 http://us-central1.gce.archive.ubuntu.com/ubuntu noble/main amd64 php all 2:8.3+93ubuntu2 [4076 B]
-Fetched 4922 kB in 0s (11.5 MB/s)
-Selecting previously unselected package php-common.
-(Reading database ... 106753 files and directories currently installed.)
-Preparing to unpack .../0-php-common_2%3a93ubuntu2_all.deb ...
-Unpacking php-common (2:93ubuntu2) ...
-Selecting previously unselected package php8.3-common.
-Preparing to unpack .../1-php8.3-common_8.3.6-0ubuntu0.24.04.6_amd64.deb ...
-Unpacking php8.3-common (8.3.6-0ubuntu0.24.04.6) ...
-Selecting previously unselected package php8.3-opcache.
-Preparing to unpack .../2-php8.3-opcache_8.3.6-0ubuntu0.24.04.6_amd64.deb ...
-Unpacking php8.3-opcache (8.3.6-0ubuntu0.24.04.6) ...
-Selecting previously unselected package php8.3-readline.
-Preparing to unpack .../3-php8.3-readline_8.3.6-0ubuntu0.24.04.6_amd64.deb ...
-Unpacking php8.3-readline (8.3.6-0ubuntu0.24.04.6) ...
-Selecting previously unselected package php8.3-cli.
-Preparing to unpack .../4-php8.3-cli_8.3.6-0ubuntu0.24.04.6_amd64.deb ...
-Unpacking php8.3-cli (8.3.6-0ubuntu0.24.04.6) ...
-Selecting previously unselected package libapache2-mod-php8.3.
-Preparing to unpack .../5-libapache2-mod-php8.3_8.3.6-0ubuntu0.24.04.6_amd64.deb ...
-Unpacking libapache2-mod-php8.3 (8.3.6-0ubuntu0.24.04.6) ...
-Selecting previously unselected package libapache2-mod-php.
-Preparing to unpack .../6-libapache2-mod-php_2%3a8.3+93ubuntu2_all.deb ...
-Unpacking libapache2-mod-php (2:8.3+93ubuntu2) ...
-Selecting previously unselected package php8.3.
-Preparing to unpack .../7-php8.3_8.3.6-0ubuntu0.24.04.6_all.deb ...
-Unpacking php8.3 (8.3.6-0ubuntu0.24.04.6) ...
-Selecting previously unselected package php.
-Preparing to unpack .../8-php_2%3a8.3+93ubuntu2_all.deb ...
-Unpacking php (2:8.3+93ubuntu2) ...
-Setting up php-common (2:93ubuntu2) ...
-Created symlink /etc/systemd/system/timers.target.wants/phpsessionclean.timer → /usr/lib/systemd/system/phpsessionclean.timer.
-Setting up php8.3-common (8.3.6-0ubuntu0.24.04.6) ...
+2)`sudo apt install php libapache2-mod-php`
 
-Creating config file /etc/php/8.3/mods-available/calendar.ini with new version
+3) `sudo systemctl restart apache2`
 
-Creating config file /etc/php/8.3/mods-available/ctype.ini with new version
+4) `php -v`
 
-Creating config file /etc/php/8.3/mods-available/exif.ini with new version
+5)`systemctl status apache2`: active
 
-Creating config file /etc/php/8.3/mods-available/fileinfo.ini with new version
+6) `cd /var/www/html/`: jessieloso@spring-2026-jvargo:/var/www/html$
 
-Creating config file /etc/php/8.3/mods-available/ffi.ini with new version
+7) `ls`: index.html  index.original.html
 
-Creating config file /etc/php/8.3/mods-available/ftp.ini with new version
+8) `sudo edit info.php`: open edit
 
-Creating config file /etc/php/8.3/mods-available/gettext.ini with new version
+9) `sudo rm /var/www/html/info.php`: removes file
 
-Creating config file /etc/php/8.3/mods-available/iconv.ini with new version
+10) `cd /etc/apache2/mods-available/`: jessieloso@spring-2026-jvargo:/etc/apache2/mods-available$
 
-Creating config file /etc/php/8.3/mods-available/pdo.ini with new version
+11) `ls`: list of mods available
 
-Creating config file /etc/php/8.3/mods-available/phar.ini with new version
+12) `sudo cp dir.conf dir.conf.bak`: added backup
 
-Creating config file /etc/php/8.3/mods-available/posix.ini with new version
-
-Creating config file /etc/php/8.3/mods-available/shmop.ini with new version
-
-Creating config file /etc/php/8.3/mods-available/sockets.ini with new version
-
-Creating config file /etc/php/8.3/mods-available/sysvmsg.ini with new version
-
-Creating config file /etc/php/8.3/mods-available/sysvsem.ini with new version
-
-Creating config file /etc/php/8.3/mods-available/sysvshm.ini with new version
-
-Creating config file /etc/php/8.3/mods-available/tokenizer.ini with new version
-Setting up php8.3-readline (8.3.6-0ubuntu0.24.04.6) ...
-
-Creating config file /etc/php/8.3/mods-available/readline.ini with new version
-Setting up php8.3-opcache (8.3.6-0ubuntu0.24.04.6) ...
-
-Creating config file /etc/php/8.3/mods-available/opcache.ini with new version
-Setting up php8.3-cli (8.3.6-0ubuntu0.24.04.6) ...
-update-alternatives: using /usr/bin/php8.3 to provide /usr/bin/php (php) in auto mode
-update-alternatives: using /usr/bin/phar8.3 to provide /usr/bin/phar (phar) in auto mode
-update-alternatives: using /usr/bin/phar.phar8.3 to provide /usr/bin/phar.phar (phar.phar) in auto mode
-
-Creating config file /etc/php/8.3/cli/php.ini with new version
-Setting up libapache2-mod-php8.3 (8.3.6-0ubuntu0.24.04.6) ...
-
-Creating config file /etc/php/8.3/apache2/php.ini with new version
-Module mpm_event disabled.
-Enabling module mpm_prefork.
-apache2_switch_mpm Switch to prefork
-apache2_invoke: Enable module php8.3
-Setting up php8.3 (8.3.6-0ubuntu0.24.04.6) ...
-Setting up libapache2-mod-php (2:8.3+93ubuntu2) ...
-Setting up php (2:8.3+93ubuntu2) ...
-Processing triggers for man-db (2.12.0-4build2) ...
-Processing triggers for php8.3-cli (8.3.6-0ubuntu0.24.04.6) ...
-Processing triggers for libapache2-mod-php8.3 (8.3.6-0ubuntu0.24.04.6) ...
-Scanning processes...                                                                                                 
-Scanning candidates...                                                                                                
-Scanning linux images...                                                                                              
-
-Pending kernel upgrade!
-Running kernel version:
-  6.14.0-1021-gcp
-Diagnostics:
-  The currently running kernel version is not the expected kernel version 6.17.0-1008-gcp.
-
-Restarting the system to load the new kernel will not be handled automatically, so you should consider rebooting.
-
-Restarting services...
-
-Service restarts being deferred:
- /etc/needrestart/restart.d/dbus.service
- systemctl restart getty@tty1.service
- systemctl restart networkd-dispatcher.service
- systemctl restart serial-getty@ttyS0.service
- systemctl restart unattended-upgrades.service
-
-No containers need to be restarted.
-
-No user sessions are running outdated binaries.
-
-No VM guests are running outdated hypervisor (qemu) binaries on this host.
-
-`sudo systemctl restart apache2`
-`php -v`:
-PHP 8.3.6 (cli) (built: Jan  7 2026 08:40:32) (NTS)
-Copyright (c) The PHP Group
-Zend Engine v4.3.6, Copyright (c) Zend Technologies
-    with Zend OPcache v8.3.6, Copyright (c), by Zend Technologies
-
-`systemctl status apache2`:
-● apache2.service - The Apache HTTP Server
-     Loaded: loaded (/usr/lib/systemd/system/apache2.service; enabled; preset: enabled)
-     Active: active (running) since Sun 2026-03-08 14:32:55 UTC; 1min 34s ago
-       Docs: https://httpd.apache.org/docs/2.4/
-    Process: 2344397 ExecStart=/usr/sbin/apachectl start (code=exited, status=0/SUCCESS)
-   Main PID: 2344400 (apache2)
-      Tasks: 6 (limit: 1072)
-     Memory: 10.7M (peak: 11.2M)
-        CPU: 66ms
-     CGroup: /system.slice/apache2.service
-             ├─2344400 /usr/sbin/apache2 -k start
-             ├─2344402 /usr/sbin/apache2 -k start
-             ├─2344403 /usr/sbin/apache2 -k start
-             ├─2344404 /usr/sbin/apache2 -k start
-             ├─2344405 /usr/sbin/apache2 -k start
-             └─2344406 /usr/sbin/apache2 -k start
-
-Mar 08 14:32:55 spring-2026-jvargo.us-central1-a.c.syslib-624-jvargonen.internal systemd[1]: Starting apache2.service>
-Mar 08 14:32:55 spring-2026-jvargo.us-central1-a.c.syslib-624-jvargonen.internal systemd[1]: Started apache2.service >
-lines 1-19/19 (END)
-
-`cd /var/www/html/`: jessieloso@spring-2026-jvargo:/var/www/html$
-
-`ls`: index.html  index.original.html
-
-`sudo edit info.php`: open edit
-
-`<?php
-phpinfo();
-?>`: PHP Version 8.3.6
-
-`sudo rm /var/www/html/info.php`: removes file
-
-`cd /etc/apache2/mods-available/`: jessieloso@spring-2026-jvargo:/etc/apache2/mods-available$
-
-`ls`: list of mods available
-
-`sudo cp dir.conf dir.conf.bak`: added backup
-
-`sudo eidt dir.conf`: opens directory index in edit
+13) `sudo eidt dir.conf`: opens directory index in edit
 insert index.php at the front and remove later listing.
 
-`apachectl configtest`: syntax OK
+14) `apachectl configtest`: syntax OK
 
-`sudo systemctl reload apache2`: reloads system
+15) `sudo systemctl reload apache2`: reloads system
 
-`systemctl status apache2` :
-● apache2.service - The Apache HTTP Server
-     Loaded: loaded (/usr/lib/systemd/system/apache2.service; enabled; preset: enabled)
-     Active: active (running) since Sun 2026-03-08 14:32:55 UTC; 32min ago
-       Docs: https://httpd.apache.org/docs/2.4/
-    Process: 2344397 ExecStart=/usr/sbin/apachectl start (code=exited, status=0/SUCCESS)
-    Process: 2346353 ExecReload=/usr/sbin/apachectl graceful (code=exited, status=0/SUCCESS)
-   Main PID: 2344400 (apache2)
-      Tasks: 6 (limit: 1072)
-     Memory: 12.1M (peak: 29.9M)
-        CPU: 401ms
-     CGroup: /system.slice/apache2.service
-             ├─2344400 /usr/sbin/apache2 -k start
-             ├─2346358 /usr/sbin/apache2 -k start
-             ├─2346359 /usr/sbin/apache2 -k start
-             ├─2346360 /usr/sbin/apache2 -k start
-             ├─2346361 /usr/sbin/apache2 -k start
-             └─2346362 /usr/sbin/apache2 -k start
+16) `systemctl status apache2` : active
 
-Mar 08 14:32:55 spring-2026-jvargo.us-central1-a.c.syslib-624-jvargonen.internal systemd[1]: Starting apache2.service>
-Mar 08 14:32:55 spring-2026-jvargo.us-central1-a.c.syslib-624-jvargonen.internal systemd[1]: Started apache2.service >
-Mar 08 15:04:47 spring-2026-jvargo.us-central1-a.c.syslib-624-jvargonen.internal systemd[1]: Reloading apache2.servic>
-Mar 08 15:04:47 spring-2026-jvargo.us-central1-a.c.syslib-624-jvargonen.internal systemd[1]: Reloaded apache2.service>
-lines 1-22/22 (END)
+17) `cd /var/www/html/`: goes to the document root
 
-`cd /var/www/html/`: goes to the document root
+18) `ls`: index.html  index.original.html
 
-`ls`: index.html  index.original.html
+19) `sudo edit index.php`: File opened insert text
 
-`sudo edit index.php`: File opened insert:
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Browser Detector</title>
-</head>
-<body>
-    <h1>Browser & OS Detection</h1>
-    <p>You are using the following browser to view this site:</p>
-
-    <?php
-    $user_agent = $_SERVER['HTTP_USER_AGENT'];
-
-    // Browser Detection
-    if (stripos($user_agent, 'Edg') !== false || stripos($user_agent, 'Edge') !== false) {
-        $browser = 'Microsoft Edge';
-    } elseif (stripos($user_agent, 'Firefox') !== false) {
-        $browser = 'Mozilla Firefox';
-    } elseif (stripos($user_agent, 'Chrome') !== false && stripos($user_agent, 'Chromium') === false) {
-        $browser = 'Google Chrome';
-    } elseif (stripos($user_agent, 'Chromium') !== false) {
-        $browser = 'Chromium';
-    } elseif (stripos($user_agent, 'Opera Mini') !== false) {
-        $browser = 'Opera Mini';
-    } elseif (stripos($user_agent, 'Opera') !== false || stripos($user_agent, 'OPR') !== false) {
-        $browser = 'Opera';
-    } elseif (stripos($user_agent, 'Safari') !== false && stripos($user_agent, 'Chrome') === false) {
-        $browser = 'Safari';
-    } else {
-        $browser = 'Unknown Browser';
-    }
-
-    // OS Detection
-    if (stripos($user_agent, 'Windows') !== false) {
-        $os = 'Windows';
-    } elseif (stripos($user_agent, 'iOS') !== false || stripos($user_agent, 'iPhone') !== false || stripos($user_agent, 'iPad') !== false) {
-        $os = 'iOS';
-    } elseif (stripos($user_agent, 'Android') !== false) {
-        $os = 'Android';
-    } elseif (stripos($user_agent, 'Mac') !== false || stripos($user_agent, 'Macintosh') !== false) {
-        $os = 'Mac';
-    } elseif (stripos($user_agent, 'Linux') !== false) {
-        $os = 'Linux';
-    } else {
-        $os = 'Unknown OS';
-    }
-
-    // Output Result
-    echo "<p>Your browser is <strong>$browser</strong> and your operating system is <strong>$os</strong>.</p>";
-    ?>
-
-</body>
-</html>
-
-on web browser detected 
 
 ## Installing and Configuring MySQL
 
 ### Steps
-`sudo apt update` : 
-Hit:1 https://packages.cloud.google.com/apt google-cloud-ops-agent-noble-2 InRelease
-Hit:2 http://us-central1.gce.archive.ubuntu.com/ubuntu noble InRelease                                               
-Hit:3 http://us-central1.gce.archive.ubuntu.com/ubuntu noble-updates InRelease              
-Hit:4 http://us-central1.gce.archive.ubuntu.com/ubuntu noble-backports InRelease
-Hit:5 http://security.ubuntu.com/ubuntu noble-security InRelease
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-8 packages can be upgraded. Run 'apt list --upgradable' to see them.
+1) `sudo apt update` 
 
-`sudo upgrade`: sudo: upgrade: command not found
+2) `sudo upgrade`: sudo: upgrade: command not found
 Forgot to put in apt
 
-`sudo apt upgrage`:
-Processing triggers for libc-bin (2.39-0ubuntu8.7) ...
-Scanning processes...                                                                                                 
-Scanning candidates...                                                                                                
-Scanning linux images...                                                                                              
+3) `sudo apt upgrage`
 
-Pending kernel upgrade!
-Running kernel version:
-  6.14.0-1021-gcp
-Diagnostics:
-  The currently running kernel version is not the expected kernel version 6.17.0-1008-gcp.
+4) `sudo apt autoremove`
 
-Restarting the system to load the new kernel will not be handled automatically, so you should consider rebooting.
+5) `sudo apt clean`
 
-Restarting services...
+6) `sudo apt install mysql-server`: installed
 
-Service restarts being deferred:
- /etc/needrestart/restart.d/dbus.service
- systemctl restart getty@tty1.service
- systemctl restart networkd-dispatcher.service
- systemctl restart serial-getty@ttyS0.service
- systemctl restart unattended-upgrades.service
-
-No containers need to be restarted.
-
-User sessions running outdated binaries:
- jessieloso @ user manager service: systemd[2146711]
-
-No VM guests are running outdated hypervisor (qemu) binaries on this host.
-
-`sudo apt autoremove`:
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
-
-`sudo apt clean`
-
-`sudo apt install mysql-server`: installed
-
-`apt policy mysql-server`: mysql-server:
-  Installed: 8.0.45-0ubuntu0.24.04.1
-  Candidate: 8.0.45-0ubuntu0.24.04.1
-  Version table:
- *** 8.0.45-0ubuntu0.24.04.1 500
-        500 http://us-central1.gce.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages
-        500 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages
-        100 /var/lib/dpkg/status
-     8.0.36-2ubuntu3 500
-        500 http://us-central1.gce.archive.ubuntu.com/ubuntu noble/main amd64 Packages
+7) `apt policy mysql-server`: mysql-server:
    
-`mysql --version`:
-mysql  Ver 8.0.45-0ubuntu0.24.04.1 for Linux on x86_64 ((Ubuntu))
+8) `mysql --version`
 
-`systemctl status mysql`: 
-● mysql.service - MySQL Community Server
-     Loaded: loaded (/usr/lib/systemd/system/mysql.service; enabled; preset: enabled)
-     Active: active (running) since Fri 2026-03-13 15:06:10 UTC; 4min 20s ago
-    Process: 2682735 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=0/SUCCESS)
-   Main PID: 2682744 (mysqld)
-     Status: "Server is operational"
-      Tasks: 37 (limit: 1072)
-     Memory: 355.2M (peak: 366.2M)
-        CPU: 4.123s
-     CGroup: /system.slice/mysql.service
-             └─2682744 /usr/sbin/mysqld
+9) `systemctl status mysql`: active 
 
-Mar 13 15:06:09 spring-2026-jvargo.us-central1-a.c.syslib-624-jvargonen.internal systemd[1]: Starting mysql.service ->
-Mar 13 15:06:10 spring-2026-jvargo.us-central1-a.c.syslib-624-jvargonen.internal systemd[1]: Started mysql.service - >
-lines 1-14/14 (END)
+10) `sudo mysql_secure_installation`
 
-`sudo mysql_secure_installation`:
-Securing the MySQL server deployment.
-
-Connecting to MySQL using a blank password.
-
-VALIDATE PASSWORD COMPONENT can be used to test passwords
-and improve security. It checks the strength of password
-and allows the users to set only those passwords which are
-secure enough. Would you like to setup VALIDATE PASSWORD component?
-
-Press y|Y for Yes, any other key for No: y
-
-There are three levels of password validation policy:
-
-LOW    Length >= 8
-MEDIUM Length >= 8, numeric, mixed case, and special characters
-STRONG Length >= 8, numeric, mixed case, special characters and dictionary                  file
-
-Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG: 0
-
-Skipping password set for root as authentication with auth_socket is used by default.
-If you would like to use password authentication instead, this can be done with the "ALTER_USER" command.
-See https://dev.mysql.com/doc/refman/8.0/en/alter-user.html#alter-user-password-management for more information.
-
-By default, a MySQL installation has an anonymous user,
-allowing anyone to log into MySQL without having to have
-a user account created for them. This is intended only for
-testing, and to make the installation go a bit smoother.
-You should remove them before moving into a production
-environment.
-
-Remove anonymous users? (Press y|Y for Yes, any other key for No) : y
-Success.
-
-
-Normally, root should only be allowed to connect from
-'localhost'. This ensures that someone cannot guess at
-the root password from the network.
-
-Disallow root login remotely? (Press y|Y for Yes, any other key for No) : y
-Success.
-
-By default, MySQL comes with a database named 'test' that
-anyone can access. This is also intended only for testing,
-and should be removed before moving into a production
-environment.
-
-
-Remove test database and access to it? (Press y|Y for Yes, any other key for No) : y
- - Dropping test database...
-Success.
-
- - Removing privileges on test database...
-Success.
-
-Reloading the privilege tables will ensure that all changes
-made so far will take effect immediately.
-
-Reload privilege tables now? (Press y|Y for Yes, any other key for No) : y
-Success.
-
-All done! 
-
-`sudo mysql -u root`:
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 10
-Server version: 8.0.45-0ubuntu0.24.04.1 (Ubuntu)
-
-Copyright (c) 2000, 2026, Oracle and/or its affiliates.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+11) `sudo mysql -u root`
 
 `show databaes;`:
 +--------------------+
+
 | Database           |
+
 +--------------------+
+
 | information_schema |
+
 | mysql              |
+
 | performance_schema |
+
 | sys                |
+
 +--------------------+
+
 4 rows in set (0.02 sec)
 
 `\q`:
