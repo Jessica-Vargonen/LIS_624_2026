@@ -4,6 +4,21 @@
 
 ### Steps
 
+
+`show databaes;`:
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+
+
+
+
+
 1) `apt search tldr`: 
 
 2) `sudo apt install tldr`: installed
