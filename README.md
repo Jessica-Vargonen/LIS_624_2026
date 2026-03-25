@@ -4,53 +4,15 @@
 
 ### Steps
 
-`sudo apt update`: six pagages can be upgraded
+1) `apt search tldr`: 
 
-`sudo apt upgrade`: updated
+2) `sudo apt install tldr`: installed
 
-`apt search tldr`: 
-Full Text Search... Done
-debgpt/noble 0.4.94 all
-  			Chatting LLM with Debian-Specific Knowledge
-libghc-tldr-dev/noble 0.9.2-5 amd64
-  			Haskell tldr client
-libghc-tldr-doc/noble 0.9.2-5 all
- 			 Haskell tldr client; documentation
-libghc-tldr-prof/noble 0.9.2-5 amd64
-  Haskell tldr client; profiling libraries
-tealdeer/noble 1.6.1-4build2 amd64
-  simplified, example based and community-driven man pages
-tldr/noble 0.9.2-5 all
-  			transitional package
-tldr-hs/noble 0.9.2-5 amd64
-  			Haskell tldr client
-tldr-py/noble 0.7.0-6 all
-  			Python client for tldr: simplified and community-driven man pages
-	apt show tldr: 
-Package: tldr
-Version: 0.9.2-5
-Priority: optional
-Section: universe/doc
-Source: haskell-tldr
-Origin: Ubuntu
-Maintainer: Ubuntu Developers ubuntu-devel-discuss@lists.ubuntu.com
-Original-Maintainer: Debian Haskell Group pkg-haskell-maintainers@lists.alioth.debian.org
-Bugs: https://bugs.launchpad.net/ubuntu/+filebug
-Installed-Size: 15.4 kB
-Depends: tldr-hs
-Homepage: https://github.com/psibi/tldr-hs#readme
-Download-Size: 2558 B
-APT-Sources: http://us-central1.gce.archive.ubuntu.com/ubuntu noble/universe amd64 Packages
-Description: transitional package
- This is a transitional package. It can safely be removed.
+3) `tldr grep`: directory does not exist 
 
-`sudo apt install tldr`: installed
+4) `sudo apt --purge remove tldr`: removed tldr
 
-`tldr grep`: directory does not exist 
-
-`sudo apt --purge remove tldr`: removed tldr
-
-`sudo apt autoremove`: removed tldr, freed up 27.8 MB disk space
+5) `sudo apt autoremove`: removed tldr, freed up 27.8 MB disk space
 
 `sudo apt clean`: to remove cached packages
 
