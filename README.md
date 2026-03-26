@@ -74,13 +74,13 @@ changes in edit then reload the page. When I refreshed it says Welcome
 
 1) `apt show php`
 
-2)`sudo apt install php libapache2-mod-php`
+2) `sudo apt install php libapache2-mod-php`
 
 3) `sudo systemctl restart apache2`
 
 4) `php -v`
 
-5)`systemctl status apache2`: active
+5) `systemctl status apache2`: active
 
 6) `cd /var/www/html/`: jessieloso@spring-2026-jvargo:/var/www/html$
 
@@ -138,96 +138,123 @@ Forgot to put in apt
 
 11) `sudo mysql -u root`
 
-`show databaes;`:
+`show databaes;`
 +--------------------+
 
-| Database           |
+      Database           
 
 +--------------------+
 
-| information_schema |
+  information_schema 
 
-| mysql              |
+  mysql              
 
-| performance_schema |
+  performance_schema 
 
-| sys                |
+  sys                
 
 +--------------------+
 
 4 rows in set (0.02 sec)
 
-`\q`:
-Bye
+12) `\q`: quit
 
-`sudo mysql -u root`
+13) `sudo mysql -u root`
 
-`create user 'opacuser'@'localhost' identified by 'XXXXXXXXX';`: 
-Query OK, 0 rows affected (0.03 sec)
+14) `create user 'opacuser'@'localhost' identified by 'XXXXXXXXX';`: Query OK, 0 rows affected (0.03 sec)
 
-`create database opacdb default character set utf8mb4 collate utf8mb4_0900_ai_ci;`:
-Query OK, 1 row affected (0.14 sec) 
+15) `create database opacdb default character set utf8mb4 collate utf8mb4_0900_ai_ci;`: Query OK, 1 row affected (0.14 sec) 
 
-`show databases;`: 
+16) `show databases;`
+
 +--------------------+
-| Database           |
+
+       Database           
+       
 +--------------------+
-| information_schema |
-| mysql              |
-| opacdb             |
-| performance_schema |
-| sys                |
+ 
+  information_schema 
+ 
+  mysql              
+ 
+  opacdb             
+ 
+  performance_schema 
+ 
+  sys                
+ 
 +--------------------+
+
 5 rows in set (0.03 sec)
 
-`grant all privileges on opacdb.* to 'opacuser'@'localhost';`:
-Query OK, 0 rows affected (0.01 sec)
+17) `grant all privileges on opacdb.* to 'opacuser'@'localhost';`: Query OK, 0 rows affected (0.01 sec)
 
-`edit ~/.bashrc`: open edit and on end add export mysql_ps1="[\d]> "
+18) `edit ~/.bashrc`: open edit and on end add export mysql_ps1="[\d]> "
 
-`source ~/.bashrc`
+19) `source ~/.bashrc`
 
-`mysql -u opacuser -p`: to sign in 
+20) `mysql -u opacuser -p`: to sign in 
 
-`show databases;`:
+`show databases;`
+
 +--------------------+
-| Database           |
+
+       Database           
+
 +--------------------+
-| information_schema |
-| opacdb             |
-| performance_schema |
+ 
+  information_schema 
+ 
+  opacdb             
+ 
+  performance_schema 
+
 +--------------------+
+
 3 rows in set (0.06 sec)
 
-`use opacdb;`:
-Database changed
+21) `use opacdb;`: Database changed
 
-`create table books (
+22) `create table books (
         id int unsigned not null auto_increment,
         author varchar(150) not null,
         title varchar(150) not null,
         copyright year not null,
         primary key (id)
-);`:
-Query OK, 0 rows affected (0.12 sec)
+);`: Query OK, 0 rows affected (0.12 sec)
 
-`show tables;`:
+23) `show tables;`
+
 +------------------+
-| Tables_in_opacdb |
+ 
+  Tables_in_opacdb 
+
 +------------------+
-| books            |
+ 
+  books            
+
 +------------------+
+
 1 row in set (0.01 sec)
 
-`describe books;`:
+24) `describe books;`
+
 +-----------+--------------+------+-----+---------+----------------+
+
 | Field     | Type         | Null | Key | Default | Extra          |
+
 +-----------+--------------+------+-----+---------+----------------+
+
 | id        | int unsigned | NO   | PRI | NULL    | auto_increment |
+
 | author    | varchar(150) | NO   |     | NULL    |                |
+
 | title     | varchar(150) | NO   |     | NULL    |                |
+
 | copyright | year         | NO   |     | NULL    |                |
+
 +-----------+--------------+------+-----+---------+----------------+
+
 4 rows in set (0.00 sec)
 
 `insert into books (author, title, copyright) values
