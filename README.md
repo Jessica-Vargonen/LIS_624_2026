@@ -242,15 +242,12 @@ Forgot to put in apt
 
 +-----------+--------------+------+-----+---------+----------------+
 
-|   Field   |    Type      | Null | Key | Default |     Extra      |
+|---Field---|-----Type-----|-Null-|-Key-|-Default-|-----Extra------|
+
 
 +-----------+--------------+------+-----+---------+----------------+
 
-| Field     | Type         | Null | Key | Default | Extra          |
-
-+-----------+--------------+------+-----+---------+----------------+
-
-| id        | int unsigned | NO   | PRI | NULL    | auto_increment |
+|-id--------|-int unsigned-|-NO---|-PRI-|-NULL----|-auto_increment-|
 
 | author    | varchar(150) | NO   |     | NULL    |                |
 
