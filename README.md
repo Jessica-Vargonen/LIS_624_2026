@@ -139,6 +139,7 @@ Forgot to put in apt
 11) `sudo mysql -u root`
 
 `show databaes;`
+
 +--------------------+
 
       Database           
@@ -238,6 +239,10 @@ Forgot to put in apt
 1 row in set (0.01 sec)
 
 24) `describe books;`
+
++-----------+--------------+------+-----+---------+----------------+
+
+|   Field   |    Type      | Null | Key | Default |     Extra      |
 
 +-----------+--------------+------+-----+---------+----------------+
 
