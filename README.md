@@ -878,6 +878,7 @@ able to pull specific data to my website.
 
 14) `select * from books;`
 
+```
 +----+-----------------------+-------------------------------------------+---------------------------+------------+
 | id | author                | title                                     | publisher                 | copyright  |
 +----+-----------------------+-------------------------------------------+---------------------------+------------+
@@ -888,6 +889,7 @@ able to pull specific data to my website.
 |  6 | Emily Winfield Martin | The Wonderful Things You Will Be          | Random House              | 2025-01-01 |
 |  7 | Dav Pilkey            | Dog Man Big Jim Believes                  | Scholastic Inc.           | 2025-01-01 |
 +----+-----------------------+-------------------------------------------+---------------------------+------------+
+```
 
 15) `insert into books
 
