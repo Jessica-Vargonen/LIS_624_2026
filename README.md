@@ -249,7 +249,7 @@ Forgot to put in apt
 
 |-id--------|-int unsigned-|-NO---|-PRI-|-NULL----|-auto_increment-|
 
-| author    | varchar(150) | NO   |     | NULL    |                |
+|_author____|_varchar(150)_|_NO___|_____|_NULL____|________________|
 
 | title     | varchar(150) | NO   |     | NULL    |                |
 
@@ -257,17 +257,19 @@ Forgot to put in apt
 
 +-----------+--------------+------+-----+---------+----------------+
 
-4 rows in set (0.00 sec)
 
-`insert into books (author, title, copyright) values
-('Jennifer Egan', 'The Candy House', '2022'),
-('Imbolo Mbue', 'How Beautiful We Were', '2021'),
-('Lydia Millet', 'A Children\'s Bible', '2020'),
-('Julia Phillips', 'Disappearing Earth', '2019');`:
-Query OK, 4 rows affected (0.07 sec)
-Records: 4  Duplicates: 0  Warnings: 0
+25) `insert into books (author, title, copyright) values
 
-`select * from books;`:
+    ('Jennifer Egan', 'The Candy House', '2022'),
+    
+    ('Imbolo Mbue', 'How Beautiful We Were', '2021'),
+    
+    ('Lydia Millet', 'A Children\'s Bible', '2020'),
+    
+    ('Julia Phillips', 'Disappearing Earth', '2019');`
+
+26) `select * from books;`
+
 +----+----------------+-----------------------+-----------+
 | id | author         | title                 | copyright |
 +----+----------------+-----------------------+-----------+
@@ -276,9 +278,9 @@ Records: 4  Duplicates: 0  Warnings: 0
 |  3 | Lydia Millet   | A Children's Bible    |      2020 |
 |  4 | Julia Phillips | Disappearing Earth    |      2019 |
 +----+----------------+-----------------------+-----------+
-4 rows in set (0.00 sec)
 
-`select author from books;`:
+27) `select author from books;`
+
 +----------------+
 | author         |
 +----------------+
@@ -287,9 +289,9 @@ Records: 4  Duplicates: 0  Warnings: 0
 | Lydia Millet   |
 | Julia Phillips |
 +----------------+
-4 rows in set (0.00 sec)
 
-`select copyright from books;`:
+28) `select copyright from books;`
+
 +-----------+
 | copyright |
 +-----------+
@@ -298,9 +300,9 @@ Records: 4  Duplicates: 0  Warnings: 0
 |      2020 |
 |      2019 |
 +-----------+
-4 rows in set (0.00 sec)
 
-`select author, title from books;`:
+29) `select author, title from books;`
+
 +----------------+-----------------------+
 | author         | title                 |
 +----------------+-----------------------+
@@ -309,41 +311,42 @@ Records: 4  Duplicates: 0  Warnings: 0
 | Lydia Millet   | A Children's Bible    |
 | Julia Phillips | Disappearing Earth    |
 +----------------+-----------------------+
-4 rows in set (0.00 sec)
 
-`select author from books where author like '%millet%';`:
+30) `select author from books where author like '%millet%';`
+
 +--------------+
 | author       |
 +--------------+
 | Lydia Millet |
 +--------------+
-1 row in set (0.01 sec)
 
-`select title from books where author like '%mbue%';`:
+31) `select title from books where author like '%mbue%';`
+
 +-----------------------+
 | title                 |
 +-----------------------+
 | How Beautiful We Were |
 +-----------------------+
-1 row in set (0.00 sec)
 
-`select author, title form books where title not like '%e%';`:
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'books where title not like '%e%'' at line 1
-I put form instead of from
+32) `select author, title form books where title not like '%e%';`
 
-`select author, title from books where title not like '%e%';':
-Empty set (0.00 sec)
-I need to remove the extra % after e
+      ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'books where title not like '%e%'' at line 1
+      I put form instead of from
 
-`select author, title from books where title not like '%e';'
+33) `select author, title from books where title not like '%e%';'
+      Empty set (0.00 sec)
+      I need to remove the extra % after e
+
+34) `select author, title from books where title not like '%e';'
+
 +----------------+--------------------+
 | author         | title              |
 +----------------+--------------------+
 | Julia Phillips | Disappearing Earth |
 +----------------+--------------------+
-1 row in set (0.00 sec)
 
-`select * from books;`:
+35) `select * from books;`
+
 +----+----------------+-----------------------+-----------+
 | id | author         | title                 | copyright |
 +----+----------------+-----------------------+-----------+
@@ -352,13 +355,11 @@ I need to remove the extra % after e
 |  3 | Lydia Millet   | A Children's Bible    |      2020 |
 |  4 | Julia Phillips | Disappearing Earth    |      2019 |
 +----+----------------+-----------------------+-----------+
-4 rows in set (0.03 sec)
 
-`alter table books add publisher varchar(75) after title;`:
-Query OK, 0 rows affected (0.12 sec)
-Records: 0  Duplicates: 0  Warnings: 0
+36) `alter table books add publisher varchar(75) after title;`
 
-`describe books;`:
+37) `describe books;`
+
 +-----------+--------------+------+-----+---------+----------------+
 | Field     | Type         | Null | Key | Default | Extra          |
 +-----------+--------------+------+-----+---------+----------------+
@@ -368,25 +369,17 @@ Records: 0  Duplicates: 0  Warnings: 0
 | publisher | varchar(75)  | YES  |     | NULL    |                |
 | copyright | year         | NO   |     | NULL    |                |
 +-----------+--------------+------+-----+---------+----------------+
-5 rows in set (0.02 sec)
 
-`update books set publisher='Simon & Schuster' where id='1';`:
- Query OK, 1 row affected (0.08 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
+38) `update books set publisher='Simon & Schuster' where id='1';`
 
-`update books set publisher='Penguin Random House' where id='2';`:
-Query OK, 1 row affected (0.01 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
+39) `update books set publisher='Penguin Random House' where id='2';`
 
-`update books set publisher='W. W. Norton & Company' where id='3';`:
-Query OK, 1 row affected (0.00 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
+40) `update books set publisher='W. W. Norton & Company' where id='3';`
 
-`update books set publisher='Knopf' where id='4';`:
-Query OK, 1 row affected (0.01 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
+41) `update books set publisher='Knopf' where id='4';`
 
-`select * from books;`:
+42) `select * from books;`
+
 +----+----------------+-----------------------+------------------------+-----------+
 | id | author         | title                 | publisher              | copyright |
 +----+----------------+-----------------------+------------------------+-----------+
@@ -395,30 +388,38 @@ Rows matched: 1  Changed: 1  Warnings: 0
 |  3 | Lydia Millet   | A Children's Bible    | W. W. Norton & Company |      2020 |
 |  4 | Julia Phillips | Disappearing Earth    | Knopf                  |      2019 |
 +----+----------------+-----------------------+------------------------+-----------+
-4 rows in set (0.01 sec)
 
-`delete from books where author='Julia Phillips';`:
-Query OK, 1 row affected (0.08 sec)
+43) `delete from books where author='Julia Phillips';`
 
-`insert into books
-(author, title, publisher, copyright) values
-('Chris Harris', 'My Head Has A Bellyache And More Nonsense', 'Little, Brown And Company', '2023'),
-('Emily Winfield Martin', 'The Wonderful Things You Will Be', 'Random House', '2015'),
-('Dav Pilkey', 'Dog Man Big Jim Believes', 'Scholastic Inc.', '2025');
-I got an error, not sure why so I tried to add one book to see if it would work
 
-`insert into books (author, title, publisher, copyright) values ('Chris Harris', 'My Head Has A Bellyache And More Nonsense', 'Little, Brown And Cpmpany', '2023');`:
-Query OK, 1 row affected (0.03 sec)
-This worked not sure what happened.
+44) `insert into books
 
-insert into books (author, title, publisher, copyright) values
+    (author, title, publisher, copyright) values
+    
+    ('Chris Harris', 'My Head Has A Bellyache And More Nonsense', 'Little, Brown And Company', '2023'),
+    
+    ('Emily Winfield Martin', 'The Wonderful Things You Will Be', 'Random House', '2015'),
+    
+    ('Dav Pilkey', 'Dog Man Big Jim Believes', 'Scholastic Inc.', '2025');
+    
+        I got an error, not sure why so I tried to add one book to see if it would work
+
+45) `insert into books (author, title, publisher, copyright) values 
+    
+    ('Chris Harris', 'My Head Has A Bellyache And More Nonsense', 'Little, Brown And Cpmpany', '2023');`
+
+      This worked not sure what happened.
+
+46) `insert into books (author, title, publisher, copyright) values
+
     -> ('Emily Winfield Martin', 'The Wonderful Things You Will Be', 'Random House', '2025'),
-    -> ('Dav Pilkey', 'Dog Man Big Jim Believes', 'Scholastic Inc.', '2025');
-Query OK, 2 rows affected (0.02 sec)
-Records: 2  Duplicates: 0  Warnings: 0
-I was able to add two books at once so I'm not sure why the first one didn't work.
+    
+    -> ('Dav Pilkey', 'Dog Man Big Jim Believes', 'Scholastic Inc.', '2025');`
+    
+      I was able to add two books at once so I'm not sure why the first one didn't work.
 
-`select * from books;`:
+47) `select * from books;`
+
 +----+-----------------------+-------------------------------------------+---------------------------+-----------+
 | id | author                | title                                     | publisher                 | copyright |
 +----+-----------------------+-------------------------------------------+---------------------------+-----------+
@@ -429,126 +430,42 @@ I was able to add two books at once so I'm not sure why the first one didn't wor
 |  6 | Emily Winfield Martin | The Wonderful Things You Will Be          | Random House              |      2025 |
 |  7 | Dav Pilkey            | Dog Man Big Jim Believes                  | Scholastic Inc.           |      2025 |
 +----+-----------------------+-------------------------------------------+---------------------------+-----------+
-6 rows in set (0.03 sec)
 
-`sudo apt install php-mysql`
+48) `sudo apt install php-mysql`
 
-`sudo systemctl restart apache2`
-`sudo systemctl restart mysql`
-`cd /var/www`
-`sudo touch login.php`
-`sudo chmod 640 login.php`
-`ls -l login.php`:
--rw-r----- 1 root root 0 Mar 13 19:06 login.php
+49) `sudo systemctl restart apache2`
 
-`sudo chown :www-data login.php`
+50) `sudo systemctl restart mysql`
 
-`ls -l`: 
-total 8
-drwxr-xr-x 2 root root     4096 Mar  8 15:10 html
--rw-r----- 1 root www-data  134 Mar 15 14:09 login.php
+51) `cd /var/www`
 
-`sudo edit login.php`: open edit add 
-<?php // login.php
-$db_hostname = "localhost";
-$db_database = "opacdb";
-$db_username = "opacuser";
-$db_password = "XXXXXXXXX";
-?>
+52) `sudo touch login.php`
 
-`cd /var/www/html`
+53) `sudo chmod 640 login.php`
 
-`sudo edit opac.php`: open edit add
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MySQL Server Example</title>
-</head>
-<body>
+54) `ls -l login.php`
 
-    <h1>A Basic OPAC</h1>
-    <p>We can retrieve all the data from our database and book table using a couple of different queries.</p>
+55) `sudo chown :www-data login.php`
 
-    <?php
-    // Load MySQL credentials securely
-    require_once '/var/www/login.php';
+56) `ls -l`
 
-    // Enable detailed MySQL error reporting
-    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+57) `sudo edit login.php`: input code
 
-    // Establish database connection
-    $conn = new mysqli($db_hostname, $db_username, $db_password, $db_database);
+58) `cd /var/www/html`
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+59) `sudo edit opac.php`: input code
 
-    echo "<h2>Query 1: Retrieving Publisher and Author Data</h2>";
+60) `sudo php -f /var/www/login.php`
 
-    // Query using prepared statement
-    $stmt = $conn->prepare("SELECT publisher, author FROM books");
-    $stmt->execute();
-    $result = $stmt->get_result();
+61) `sudo php -f var/www/html/opac.php`: error couldn't open file opac.php
+  
+      took a while to figure our that I forgot a / in front of var
 
-    while ($row = $result->fetch_assoc()) {
-        echo "<p>Publisher " . htmlspecialchars($row["publisher"]) .
-             " published a book by " . htmlspecialchars($row["author"]) . ".</p>";
-    }
+62) `sudo php -f /var/www/html/opac.php`
 
-    $stmt->close();
+63) `cat ../login.php`
 
-    echo "<h2>Query 2: Retrieving Author, Title, and Date Published Data</h2>";
-
-    $stmt2 = $conn->prepare("SELECT author, title, copyright FROM books");
-    $stmt2->execute();
-    $result2 = $stmt2->get_result();
-
-    while ($row = $result2->fetch_assoc()) {
-        echo "<p>A book by " . htmlspecialchars($row["author"]) .
-             " titled <em>" . htmlspecialchars($row["title"]) .
-             "</em> was released in " . htmlspecialchars($row["copyright"]) . ".</p>";
-    }
-
-    $stmt2->close();
-    $conn->close();
-    ?>
-
-</body>
-</html>
-
-`sudo php -f /var/www/login.php`: no output
-
-`sudo php -f var/www/html/opac.php`: error couldn't open file opac.php
-took a while to figure our that I forgot a / in front of var
-
-`sudo php -f /var/www/html/opac.php`:
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MySQL Server Example</title>
-</head>
-<body>
-
-    <h1>A Basic OPAC</h1>
-    <p>We can retrieve all the data from our database and book table using a couple of different queries.</p>
-
-    <h2>Query 1: Retrieving Publisher and Author Data</h2><p>Publisher Simon &amp; Schuster published a book by Jennifer Egan.</p><p>Publisher Penguin Random House published a book by Imbolo Mbue.</p><p>Publisher W. W. Norton &amp; Company published a book by Lydia Millet.</p><p>Publisher Little, Brown And Cpmpany published a book by Chris Harris.</p><p>Publisher Random House published a book by Emily Winfield Martin.</p><p>Publisher Scholastic Inc. published a book by Dav Pilkey.</p><h2>Query 2: Retrieving Author, Title, and Date Published Data</h2><p>A book by Jennifer Egan titled <em>The Candy House</em> was released in 2022.</p><p>A book by Imbolo Mbue titled <em>How Beautiful We Were</em> was released in 2021.</p><p>A book by Lydia Millet titled <em>A Children&#039;s Bible</em> was released in 2020.</p><p>A book by Chris Harris titled <em>My Head Has A Bellyache And More Nonsense</em> was released in 2023.</p><p>A book by Emily Winfield Martin titled <em>The Wonderful Things You Will Be</em> was released in 2025.</p><p>A book by Dav Pilkey titled <em>Dog Man Big Jim Believes</em> was released in 2025.</p>
-</body>
-</html>
-
-`cat ../login.php`:
-cat: ../login.php: Permission denied
-
-`sudo cat ../login.php`:
-<?php // login.php
-$db_hostname = "localhost";
-$db_database = "opacdb";
-$db_username = "opacuser";
-$db_password = "XXXXXXXXXXX";
+64) `sudo cat ../login.php`
 
 ### Issues Encountered:
 
@@ -576,3 +493,356 @@ It is very important to ensure that everything is typed correctly. I am still no
 happended when I tried to add multiple books the first time. I learned how to install MySQL. 
 I created a table and was able to search it for information. I also added to the table. I was 
 able to pull specific data to my website.  
+
+## Introduction to Relational Databases
+
+### Steps
+
+1) `sudo mysql -u root`
+
+2) `create database DinnerDB;`
+
+3) `show databases;`: to make sure it's there
+
+4) `grant all privileges on DinnerDB.* to 'opacuser'@'localhost';`
+
+5) `\q`: to exit
+
+6) `mysql -u opacuser -p`: to sign in
+
+7) `show databases;`
+
+8) `use DinnerDB;`
+
+9) `create table Meals (
+
+    -> meal_id int auto_increment primary key,
+    
+    -> meal_name varchar(100) not null,
+    
+    -> cuisine varchar(50),
+    
+    -> cooking_time int not null default 1 check (cooking_time > 0),
+    
+    -> vegetarian boolean
+    
+    -> );`
+    
+10) `create table Ingredients (
+
+    -> ingredient_id int auto_increment primary key,
+    
+    -> meal_id int not null,
+    
+    -> ingredient_name varchar(100) not null, 
+    
+    -> quantity varchar (50),
+    
+    -> foreign key (meal_id) references Meals(meal_id) on delete cascade
+    
+    -> );`
+    
+11) `create table Ingredients (
+
+    -> ingredient_id int auto_increment primary key,
+    
+    -> meal_id int not null,
+    
+    -> ingredient_name varchar(100) not null, 
+    
+    -> quantity varchar (50),
+    
+    -> foreign key (meal_id) references Meals(meal_id) on delete cascade
+    
+    -> );`
+    
+12) `insert into Ingredients (meal_id, ingredient_name, quantity) values
+
+    -> (1, 'Spaghetti', '200g'),
+    
+    -> (1, 'Ground Beef', '250g'),
+    
+    -> (1, 'Tomato Sauce', '1 cup'),
+    
+    -> (2, 'Broccoli', '100g'),
+    
+    -> (2, 'Carrots', '50g'),
+    
+    -> (2, 'Soy Sauce', '2T'),
+    
+    -> (3, 'Chicken Breast', '300g'),
+    
+    -> (3, 'Curry Powder', '2T'),
+    
+    -> (3, 'Coconut Milk', '1cup'),
+    
+    -> (4, 'Arborio Rive', '1 cup'),
+    
+    -> (4, 'Mushrooms', '1 cup'),
+    
+    -> (4, 'Parmesan Cheese', '1/2 cup');
+                
+13) `select * from Meals;`
+
++---------+---------------------+---------+--------------+------------+
+| meal_id | meal_name           | cuisine | cooking_time | vegetarian |
++---------+---------------------+---------+--------------+------------+
+|       1 | Spaghetti Bolognese | Italian |           45 |          0 |
+|       2 | Vegetable Stir Fry  | Chinese |           20 |          1 |
+|       3 | Chicken Curry       | Indian  |           50 |          0 |
+|       4 | Mushroom Risotto    | Italian |           35 |          1 |
++---------+---------------------+---------+--------------+------------+
+
+14) ` select * from Meals where vegetarian = true;`
+
++---------+--------------------+---------+--------------+------------+
+| meal_id | meal_name          | cuisine | cooking_time | vegetarian |
++---------+--------------------+---------+--------------+------------+
+|       2 | Vegetable Stir Fry | Chinese |           20 |          1 |
+|       4 | Mushroom Risotto   | Italian |           35 |          1 |
++---------+--------------------+---------+--------------+------------+
+
+15) `select * from Meals order by cooking_time desc;`
+
++---------+---------------------+---------+--------------+------------+
+| meal_id | meal_name           | cuisine | cooking_time | vegetarian |
++---------+---------------------+---------+--------------+------------+
+|       3 | Chicken Curry       | Indian  |           50 |          0 |
+|       1 | Spaghetti Bolognese | Italian |           45 |          0 |
+|       4 | Mushroom Risotto    | Italian |           35 |          1 |
+|       2 | Vegetable Stir Fry  | Chinese |           20 |          1 |
++---------+---------------------+---------+--------------+------------+
+
+16) `select * from Meals order by cooking_time asc;`
+
++---------+---------------------+---------+--------------+------------+
+| meal_id | meal_name           | cuisine | cooking_time | vegetarian |
++---------+---------------------+---------+--------------+------------+
+|       2 | Vegetable Stir Fry  | Chinese |           20 |          1 |
+|       4 | Mushroom Risotto    | Italian |           35 |          1 |
+|       1 | Spaghetti Bolognese | Italian |           45 |          0 |
+|       3 | Chicken Curry       | Indian  |           50 |          0 |
++---------+---------------------+---------+--------------+------------+
+
+17) `select Meals.meal_name as Meals,
+
+    ->     Ingredients.ingredient_name as Ingredients,
+    
+    ->     Ingredients.quantity as Quantity
+    
+    ->     from Meals
+    
+    ->     join Ingredients on Meals.meal_id = Ingredients.meal_id;`
+    
++---------------------+-----------------+----------+
+| Meals               | Ingredients     | Quantity |
++---------------------+-----------------+----------+
+| Spaghetti Bolognese | Spaghetti       | 200g     |
+| Spaghetti Bolognese | Ground Beef     | 250g     |
+| Spaghetti Bolognese | Tomato Sauce    | 1 cup    |
+| Vegetable Stir Fry  | Broccoli        | 100g     |
+| Vegetable Stir Fry  | Carrots         | 50g      |
+| Vegetable Stir Fry  | Soy Sauce       | 2T       |
+| Chicken Curry       | Chicken Breast  | 300g     |
+| Chicken Curry       | Curry Powder    | 2T       |
+| Chicken Curry       | Coconut Milk    | 1cup     |
+| Mushroom Risotto    | Arborio Rive    | 1 cup    |
+| Mushroom Risotto    | Mushrooms       | 1 cup    |
+| Mushroom Risotto    | Parmesan Cheese | 1/2 cup  |
++---------------------+-----------------+----------+
+
+18) `select ingredient_name as Ingredients,
+
+    ->     quantity as Quantity
+    
+    ->     from Ingredients 
+    
+    ->     where meal_id = (select meal_id from Meals where meal_name = 'Chicken Curry');`
+    
++----------------+----------+
+| Ingredients    | Quantity |
++----------------+----------+
+| Chicken Breast | 300g     |
+| Curry Powder   | 2T       |
+| Coconut Milk   | 1cup     |
++----------------+----------+
+
+19) `select cuisine, Count(*) as meal_count
+
+    -> from Meals
+    
+    -> group by cuisine;`
+    
++---------+------------+
+| cuisine | meal_count |
++---------+------------+
+| Italian |          2 |
+| Chinese |          1 |
+| Indian  |          1 |
++---------+------------+
+
+20) `select meal_name, cooking_time 
+
+    ->     from Meals 
+    
+    ->     where cooking_time <= 45
+    
+    ->     order by cooking_time asc;`
+    
++---------------------+--------------+
+| meal_name           | cooking_time |
++---------------------+--------------+
+| Vegetable Stir Fry  |           20 |
+| Mushroom Risotto    |           35 |
+| Spaghetti Bolognese |           45 |
++---------------------+--------------+
+
+21) `\q`
+
+22) `sudo mysql -u root`
+
+23) `show grants for 'opacuser'@'localhost';`
+
++----------------------------------------------------------------+
+| Grants for opacuser@localhost                                  |
++----------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `opacuser`@`localhost`                   |
+| GRANT ALL PRIVILEGES ON `DinnerDB`.* TO `opacuser`@`localhost` |
+| GRANT ALL PRIVILEGES ON `opacdb`.* TO `opacuser`@`localhost`   |
++----------------------------------------------------------------+
+
+24) `\q`
+
+## Creating a Bare Bones OPAC
+
+### Steps
+
+1) `mysql -u opacuser -p`
+
+2) `use opacdb;`
+
+3) `alter table books add publication_date date;`
+
+4) `update books set publication_date = str_to_date(concat(copyright, '-01-01'), '%Y-%m-%d');`
+
+5) `alter table books drop column copyright;`
+
+6) `alter table books change publication_date copyright date not null;`
+
+7) `\q`
+
+8) `cd /var/www/html/`
+
+9) `sudo edit mylibrary.html`: input code
+
+10) `sudo edit search.php`: input code
+
+11) `mysql -u opacuser -p`
+
+12) `use opacdb;`
+
+13) `show tables;`
+
++------------------+
+| Tables_in_opacdb |
++------------------+
+| books            |
++------------------+
+
+14) `select * from books;`
+
++----+-----------------------+-------------------------------------------+---------------------------+------------+
+| id | author                | title                                     | publisher                 | copyright  |
++----+-----------------------+-------------------------------------------+---------------------------+------------+
+|  1 | Jennifer Egan         | The Candy House                           | Simon & Schuster          | 2022-01-01 |
+|  2 | Imbolo Mbue           | How Beautiful We Were                     | Penguin Random House      | 2021-01-01 |
+|  3 | Lydia Millet          | A Children's Bible                        | W. W. Norton & Company    | 2020-01-01 |
+|  5 | Chris Harris          | My Head Has A Bellyache And More Nonsense | Little, Brown And Cpmpany | 2023-01-01 |
+|  6 | Emily Winfield Martin | The Wonderful Things You Will Be          | Random House              | 2025-01-01 |
+|  7 | Dav Pilkey            | Dog Man Big Jim Believes                  | Scholastic Inc.           | 2025-01-01 |
++----+-----------------------+-------------------------------------------+---------------------------+------------+
+
+15) `insert into books
+
+    -> (author, title, publisher, copyright) values
+    
+    -> ('Emma Donoghue', 'Room', 'Little, Brown & Company', '2010-01-01'),
+    
+    -> ('Zadie Smith', 'White Teeth', 'Hamish Hamilton', '2000-01-01');`
+    
+16) `select * from books;`
+
++----+-----------------------+-------------------------------------------+---------------------------+------------+
+| id | author                | title                                     | publisher                 | copyright  |
++----+-----------------------+-------------------------------------------+---------------------------+------------+
+|  1 | Jennifer Egan         | The Candy House                           | Simon & Schuster          | 2022-01-01 |
+|  2 | Imbolo Mbue           | How Beautiful We Were                     | Penguin Random House      | 2021-01-01 |
+|  3 | Lydia Millet          | A Children's Bible                        | W. W. Norton & Company    | 2020-01-01 |
+|  5 | Chris Harris          | My Head Has A Bellyache And More Nonsense | Little, Brown And Cpmpany | 2023-01-01 |
+|  6 | Emily Winfield Martin | The Wonderful Things You Will Be          | Random House              | 2025-01-01 |
+|  7 | Dav Pilkey            | Dog Man Big Jim Believes                  | Scholastic Inc.           | 2025-01-01 |
+|  8 | Emma Donoghue         | Room                                      | Little, Brown & Company   | 2010-01-01 |
+|  9 | Zadie Smith           | White Teeth                               | Hamish Hamilton           | 2000-01-01 |
+| 10 | Emma Donoghue         | Room                                      | Little, Brown & Company   | 2010-01-01 |
+| 11 | Zadie Smith           | White Teeth                               | Hamish Hamilton           | 2000-01-01 |
++----+-----------------------+-------------------------------------------+---------------------------+------------+
+
+17) `delete from books where author='zadie smith';` : accidentally entered the information twice
+so I wanted to delete the duplicates.
+
+18) `delete from books where author='emma donoghue';`
+
+19) `insert into books
+
+     -> (author, title, publisher, copyright) values
+     
+     -> ('Emma Donoghue', 'Room', 'Little, Brown & Company', '2010-01-01'),
+     
+     -> ('Zadie Smith', 'White Teeth', 'Hamish Hamilton', '2000-01-01');`
+
+20) `select * from books;`
+
++----+-----------------------+-------------------------------------------+---------------------------+------------+
+| id | author                | title                                     | publisher                 | copyright  |
++----+-----------------------+-------------------------------------------+---------------------------+------------+
+|  1 | Jennifer Egan         | The Candy House                           | Simon & Schuster          | 2022-01-01 |
+|  2 | Imbolo Mbue           | How Beautiful We Were                     | Penguin Random House      | 2021-01-01 |
+|  3 | Lydia Millet          | A Children's Bible                        | W. W. Norton & Company    | 2020-01-01 |
+|  5 | Chris Harris          | My Head Has A Bellyache And More Nonsense | Little, Brown And Cpmpany | 2023-01-01 |
+|  6 | Emily Winfield Martin | The Wonderful Things You Will Be          | Random House              | 2025-01-01 |
+|  7 | Dav Pilkey            | Dog Man Big Jim Believes                  | Scholastic Inc.           | 2025-01-01 |
+| 12 | Emma Donoghue         | Room                                      | Little, Brown & Company   | 2010-01-01 |
+| 13 | Zadie Smith           | White Teeth                               | Hamish Hamilton           | 2000-01-01 |
++----+-----------------------+-------------------------------------------+---------------------------+------------+ 
+
+## Creating a Bare Bones Cataloging Module
+
+### Steps
+
+1) `cd /var/www/html`
+
+2) `sudo mkdir cataloging`
+
+3) `cd cataloging`
+
+4) `sudo edit index.html`: input code
+
+5) `sudo edit insert.php`: input code
+
+6) `sudo htpasswd -c /etc/apache2/.htpasswd libcat`
+
+7) `sudo edit /etc/apache2/apache2.conf`: insert cataloging
+
+8) `sudo edit .htaccess`: input code
+
+9) `sudo apachectl configtest`
+
+10) `sudo systemctl restart apache2`
+
+11) `sudo systemctl status apache2`: active
+
+12) `sudo chown :www-data /var/www/html`
+
+13) `sudo find /var/www/html -type d -exec chmod g+s {} +`
+
+
