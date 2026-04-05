@@ -30,6 +30,6 @@
 
 14. `sudo edit wp-config.php` put in information that we just created
 
-15. `sudo mv /var/www/html/wordpress /var/www/html/library` to rename from wordpress to library
+15. `sudo mv /var/www/html/wordpress /var/www/html/library` to rename site from wordpress to library
 
 16.    
