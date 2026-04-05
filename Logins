@@ -4,8 +4,9 @@ Cataloging module:
 
   password: Calvin_&_Hobbes
 
-wordpress:
+mysql wordpress:
 
   user:wordpress
-  password: 
+
+  password: Calvin_&_Hobbes2
 
