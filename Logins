@@ -6,7 +6,14 @@ Cataloging module:
 
 mysql wordpress:
 
-  user:wordpress
+  user: wordpress
 
   password: Calvin_&_Hobbes2
 
+wordpress/library site
+
+  Site Title: jessi's library site
+  
+  user: jessi_ls
+
+  password: 8Uy6aUaH3IP1Z2F3&v
