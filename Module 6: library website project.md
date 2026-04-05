@@ -32,4 +32,7 @@
 
 15. `sudo mv /var/www/html/wordpress /var/www/html/library` to rename site from wordpress to library
 
-16.    
+16. Finish installing on website
+
+### Reflection
+- Installing wordpress went well. It was very straight forward.
