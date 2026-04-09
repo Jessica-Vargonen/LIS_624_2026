@@ -55,4 +55,12 @@
 
 7. `sudo unzip omeka-3.2.zip` to unzip omeka file
 
-8. 
+8. `cd /var/www/html/omeka` This didn't work because there isn't an omeka directory
+
+9. `cd /var/www/html/omeka-3.2` to open the omeka directory
+
+10. `sudo cp db.ini updated-db.ini` to copy the file that I will be editing
+
+11. `sudo edit updated-db.ini` to input login inforamtion
+
+12. 
