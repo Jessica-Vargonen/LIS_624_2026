@@ -36,3 +36,23 @@
 
 ### Reflection
 - Installing wordpress went well. It was very straight forward.
+
+# Installing Omeka
+
+### Steps:
+
+1. `sudo apt update; sudo apt upgrade -y; sudo apt autoremove -y; sudo apt clean` to update system
+
+2. `program --version` ex: `mysql --version` to make sure that the systems I'm running will work with Omeka
+
+3. `sudo apt install imagemagick` to install imagemagick
+
+4. `sudo a2enmod rewrite` to rewrite URLs
+
+5. `sudo systemctl restart apache2` to restart apache2
+
+6. `sudo wget https://github.com/omeka/Omeka/releases/download/v3.2/omeka-3.2.zip` to download Omeka
+
+7. `sudo unzip omeka-3.2.zip` to unzip omeka file
+
+8. 
