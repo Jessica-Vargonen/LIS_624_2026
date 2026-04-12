@@ -52,6 +52,25 @@
 
 24) `grep "^@" savedrecs.bib` This will give all of the material types ie atricle, inproceedings
 
-25) `grep -Eio "^@(A|B)[A-Z]*" savedresc.bib | sort` this gives just the word article
+25) `grep -Eio "^@(A|B)[A-Z]*" savedrecs.bib | sort` this gives the words after the @ 
 
-26) 
+26) `grep -oi "^@[a-z]*" savedrecs.bib | sort | uniq -c` adding the c gives me the type count
+
+27) `head -n20 savedrecs.bib` will give me the first 20 line of the file, head will auto give 10 lines but you can put in any number
+
+28) `grep -i "journal" savedrecs.bib` will give the lines with journal, can put any word in the "" to search for
+
+29) `grep -i "^journal =" savedrecs.bib | cut -d"=" -f2 |\sed 's/ {//' | sed 's/},//' | \sort | uniq -c | sort -nr` will list the journal titles
+
+30) `grep -o "Times-Cited = {[0-9]*" savedrecs.bib | \awk -F"{" 'BEGIN { printf "Total Citations: "} \ { sum +=2; } \END { print sum }'` to show the number of times that it has been cited
+
+31) `grep -iw "li" savedrecs.bib` to find Li in the files
+
+32) `grep -i "^author =" savedrecs.bib` to give all of the authors
+
+33) `grep -i "^author =" | -iw "li" savedrecs.bib` trying to get the author lines with Li in them, didn't work
+
+34) `grep -i "author.*li" savedrecs.bib` closer
+
+35) `grep -iw "^author.*li" savedrecs.bib` did it!
+
