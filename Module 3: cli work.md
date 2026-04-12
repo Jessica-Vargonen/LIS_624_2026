@@ -106,6 +106,8 @@
 
 14) tried to open killbots and it doesn't work on my system so I removed it
 
+15) So I went through the steps to download bsd games and played go fish
+
 # Library Search
 
 ### Steps
