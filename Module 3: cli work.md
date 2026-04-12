@@ -185,3 +185,13 @@ sort | \
 uniq -c | \
 sort -n` 
 
+### Issuses Encountered:
+
+ * I didn't really run into any issues when going through searching with grep, managing software, and library search. 
+
+ * The only thing was trying to figure out how to search for a specific author when using grep. I was able to figure it out by looking up on the internet how to do it. I got a parctial answer and was able to figure it out from there. 
+
+### Things I Learned:
+
+ * I learned how to use grep to search and not be afriad to look for answers on the internet, I didn't find exactly what I was looking for but it gave me a jumping off point. 
+    
