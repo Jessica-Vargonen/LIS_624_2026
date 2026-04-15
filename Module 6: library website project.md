@@ -59,8 +59,38 @@
 
 9. `cd /var/www/html/omeka-3.2` to open the omeka directory
 
-10. `sudo cp db.ini updated-db.ini` to copy the file that I will be editing
+10. `sudo mv omeka-3.2 omeka` to move the directory to omeka
 
-11. `sudo edit updated-db.ini` to input login inforamtion
+11. `sudo edit db.ini` to replace the 'XXX' values with my values
 
-12. 
+12. site didn't work
+
+13. `sudo edit .htaccess` added in my directory
+
+14. got a 404 error for site
+
+### Reflection:
+
+I was unable to solve the problem of why my site refused to work. Had a meeting with Dr. Burns and we still couldn't figure out the problem so we restarted. 
+
+### Steps:
+
+1. `sudo cp db.ini ~` to copy file to home directory
+
+2. `sudo rm -rf diglib` to remove the file which we had changed the name of to see if that would help
+
+3. `sudo unzip omeka-3.2.zip` to reinstall the file
+
+4. `ls -l` to look at the directory
+
+5. `sudo mv omeka-3.2 omeka` to change directory to omeka
+
+6. `cd omeka` to open directory
+
+7. `ls -l` to look at directory
+
+8. `sudo cp ~/db.ini .` to copy the file
+
+9. `sudo chmod -R g+w files/` to be able to change and modify the files
+
+10. now it works!
