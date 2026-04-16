@@ -24,3 +24,17 @@ Omeka:
 
   password: Calvin_&_Hobbes2
 
+Koha: 
+
+  Username for bibliolib: koha_bibliolib
+
+  Password for bibliolib: %DW.%TPeIdbN8RNw
+
+Administrator account:
+
+  User: jvargonen
+
+  password: Calvin_&_Hobbes2
+
+
+
