@@ -94,3 +94,100 @@ I was unable to solve the problem of why my site refused to work. Had a meeting 
 9. `sudo chmod -R g+w files/` to be able to change and modify the files
 
 10. now it works!
+
+# Installing Koha
+
+### Steps:
+
+1) create new virtual instance
+
+2) input firewall rules
+
+3) open new machine
+
+4) `sudo apt update; sudo apt upgrade -y; sudo apt autoremove -y; sudo apt clean` to update machine
+
+5) `tmux` in case I get disconnected while working I can go back to where I left off
+
+6) `sudo apt install apt-transport-https ca-certificates curl` to setup signing keys
+
+7) `sudo mkdir -p --mode=0755 /etc/apt/keyrings` to setup signing keys
+
+8) `sudo curl -fsSL https://debian.koha-community.org/koha/gpg.asc -o /etc/apt/keyrings/koha.asc` to setup signing keys
+
+9) `sudo su` to become the root user
+
+10) `tee /etc/apt/sources.list.d/koha.sources <<EOF
+Types: deb
+URIs: https://debian.koha-community.org/koha/
+Suites: 25.05
+Components: main
+Signed-By: /etc/apt/keyrings/koha.asc
+EOF`
+
+11) `cat /etc/apt/sources.list.d/koha.sources` to check that the information was put in correctly
+
+12) `exit` to exit root user
+
+13) update machine
+
+14) `sudo apt install mariadb-server` to install MariaDB server
+
+15) update machine
+
+16) `apt show koha-common` to review Koha
+
+17) `sudo apt install koha-common` to install Koha
+
+18) `sudo cp /etc/koha/koha-sites.conf /etc/koha/koha-sites.conf.backup` to create a backup file
+
+19) `wget https://github.com/microsoft/edit/releases/download/v1.2.1/edit-1.2.0-x86_64-linux-gnu.tar.zst
+tar -xf  edit-1.2.0-x86_64-linux-gnu.tar.zst
+sudo install -m 0755 edit /usr/local/bin/edit` to install edit
+
+20) `sudo edit /etc/koha/koha-sites.conf` to open and edit file
+
+21) input INTRAPORT="8080" OPACPORT="8081"
+
+22) `sudo a2enmod rewrite cgi headers proxy_http` to allow modifications
+
+23) `sudo systemctl restart apache2` to restart apache
+
+24) `systemctl status apache2` to make sure apache2 is running
+
+25) `sudo cp /etc/apache2/ports.conf /etc/apache2/ports.conf.backup` to create apache2 backup file
+
+26) `sudo edit /etc/apache2/ports.conf` to open and edit file
+
+27) input Listen 8080 Listen 8081
+
+28) `sudo koha-create --create-db bibliolib` to create a library called bibliolib
+
+29) `sudo systemctl restart apache2` to restart apache2
+
+30) `sudo a2dissite 000-default` to turn off wed document root
+
+31) `sudo a2enmod deflate` to turn on network compression
+
+32) `sudo a2ensite bibliolib` to enable bibliolib library
+
+33) `sudo systemctl reload apache2` to reload apache2
+
+34) `sudo systemctl restart apache2` to restart apache2
+
+35) `systemctl status apache2` to ensure it is active
+
+36) `sudo koha-passwd bibliolib` to get user name and password
+    
+```
+Username for bibliolib: koha_bibliolib
+Password for bibliolib: %DW.%TPeIdbN8RNw
+```
+
+37) go to site 35.193.164.194:8080 to setup admin account 
+
+38) go to site 35.193.164.194:8081
+
+### Reflection:
+
+- This install went very well. I only ran into a hicup when I tried to edit the file the first time. This only happened because I didn't install my text editor onto the new system yet. So this was a very simple fix. I just installed edit and moved on from there. I was able to create users and add books to my site. I might just use this for my home library since I have five bookshelves of books. 
